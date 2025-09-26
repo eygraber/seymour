@@ -1,27 +1,71 @@
 {
-  extends: [
-    "config:base",
+  customManagers: [
+    // Update .java-version file with the latest JDK version.
+    {
+      customType: 'regex',
+      fileMatch: [
+        '\\.java-version$',
+      ],
+      matchStrings: [
+        '(?<currentValue>.*)\\n',
+      ],
+      datasourceTemplate: 'java-version',
+      depNameTemplate: 'java',
+      // Only write the major version.
+      extractVersionTemplate: '^(?<version>\\d+)',
+    },
   ],
-  enabledManagers: ["gradle", "gradle-wrapper", "github-actions"],
-  labels: ["dependencies"],
+  extends: [
+    "config:recommended",
+  ],
+  enabledManagers: ["gradle", "gradle-wrapper", "github-actions", "custom.regex"],
+  ignorePresets: [
+    // Ensure we get the latest version and are not pinned to old versions.
+    'workarounds:javaLTSVersions',
+  ],
+  labels: [
+    "dependencies",
+  ],
   prHourlyLimit: 3,
   packageRules: [
     {
       groupName: "gradle-conventions",
-      matchPackagePrefixes: ["com.eygraber.conventions"],
       automerge: true,
+      registryUrls: [
+        "https://repo.maven.apache.org/maven2/",
+      ],
+      matchPackageNames: [
+        "com.eygraber.conventions{/,}**",
+        "com.eygraber:gradle-conventions",
+      ]
     },
     {
       groupName: "gradle-develocity-plugin",
-      matchPackagePrefixes: ["com.gradle.develocity"],
       automerge: true,
       registryUrls: [
         "https://plugins.gradle.org/m2",
       ],
+      matchPackageNames: [
+        "com.gradle.develocity{/,}**",
+      ]
+    },
+    {
+      groupName: "androidx-tests",
+      matchDatasources: [
+        "maven",
+      ],
+      depType: "dependencies",
+      matchPackagePrefixes: ["androidx.test"],
+      automerge: true,
+      registryUrls: [
+        "https://dl.google.com/dl/android/maven2/",
+        "https://plugins.gradle.org/m2",
+      ]
     },
     {
       matchDatasources: ["maven"],
       depType: "dependencies",
+      automerge: true,
       registryUrls: [
         "https://repo.maven.apache.org/maven2/",
         "https://dl.google.com/dl/android/maven2/",

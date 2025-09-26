@@ -1,8 +1,8 @@
 {
   "categories": [
     {
-      "title": "## 🚀 Features",
-      "labels": ["feature"]
+      "title": "## ✨ Enhancements",
+      "labels": ["enhancement"]
     },
     {
       "title": "## ⚙️ Chores",
@@ -26,7 +26,7 @@
     }
   ],
   "ignore_labels": [
-    "duplicate", "good first issue", "help wanted", "invalid", "question", "wontfix", "skip release notes", "hold"
+    "duplicate", "good first issue", "help wanted", "invalid", "question", "wontfix", "skip release notes", "hold", "gh-actions"
   ],
   "sort": "ASC",
   "template": "${{CHANGELOG}}",
