@@ -51,7 +51,7 @@ buildscript-dokka = { module = "org.jetbrains.dokka:dokka-gradle-plugin", versio
 buildscript-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 buildscript-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "publish" }
 
-compose-material3 = "org.jetbrains.compose.material3:material3:1.9.0-beta06"
+compose-material3 = "org.jetbrains.compose.material3:material3:1.9.0"
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 
 detektCompose = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
