@@ -1,9 +1,12 @@
 package com.eygraber.seymour
 
+import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.SemanticsNodeInteraction
@@ -14,6 +17,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.dp
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -61,6 +65,29 @@ abstract class InlineSeymourTextUiTest {
     onNodeWithText("This is a non truncated text").assertExists()
     onNodeWithText(" Show More", substring = true).assertDoesNotExist()
   }
+
+  @Test
+  fun `test expanded state2`() = runComposeUiTest {
+    val longText =
+      "This is a very long single line of text that should definitely be truncated because it exceeds the normal line width and would cause visual overflow in the component when displayed with a single line limit."
+
+    var isExpanded by mutableStateOf(false)
+    setContent {
+      Text(
+        text = longText,
+        modifier = Modifier.requiredWidth(10.dp),
+        maxLines = 1,
+        onTextLayout = {
+          isExpanded = it.hasVisualOverflow
+        }
+      )
+    }
+
+    waitForIdle()
+
+    assertTrue { isExpanded }
+  }
+
 
   @Test
   fun `test expanded state with collapse text`() = runComposeUiTest {
