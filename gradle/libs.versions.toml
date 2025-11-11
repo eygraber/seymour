@@ -23,7 +23,7 @@ ktlint = "1.7.1"
 
 paparazzi = "2.0.0-alpha02"
 
-publish = "0.34.0"
+publish = "0.35.0"
 
 robolectric = "4.16"
 
