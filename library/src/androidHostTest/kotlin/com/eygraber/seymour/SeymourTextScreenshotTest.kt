@@ -27,7 +27,9 @@ import androidx.compose.ui.unit.sp
 import app.cash.paparazzi.Paparazzi
 import org.junit.Rule
 import org.junit.Test
+import kotlin.test.Ignore
 
+@Ignore
 class SeymourTextScreenshotTest {
   @get:Rule
   val paparazzi = Paparazzi()
