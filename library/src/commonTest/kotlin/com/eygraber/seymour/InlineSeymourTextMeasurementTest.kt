@@ -1,3 +1,5 @@
+@file:Suppress("NamedArguments", "UnnamedParameterUse")
+
 package com.eygraber.seymour
 
 import androidx.compose.ui.text.AnnotatedString

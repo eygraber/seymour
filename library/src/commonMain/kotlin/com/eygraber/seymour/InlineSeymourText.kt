@@ -336,8 +336,9 @@ private fun rememberSeeLessAnnotatedString(
   seeLessStyle: SpanStyle,
   seeLessInteraction: LinkInteractionListener,
 ): AnnotatedString? = remember(seeLessText, seeLessStyle, seeLessInteraction) {
-  seeLessText?.let { seeLessText ->
-    buildAnnotatedString(capacity = seeLessText.length) {
+  when(seeLessText) {
+    null -> null
+    else -> buildAnnotatedString(capacity = seeLessText.length) {
       withLink(
         link = LinkAnnotation.Clickable(
           tag = "collapse",
@@ -378,7 +379,7 @@ internal fun createTruncatedText(
   return buildAnnotatedString(
     capacity = text.length + seeMoreAnnotated.length + 1,
   ) {
-    append(text.subSequence(0, lineWithSeeMoreEndIndex))
+    append(text.subSequence(startIndex = 0, endIndex = lineWithSeeMoreEndIndex))
 
     append(seeMoreAnnotated)
 
@@ -386,7 +387,7 @@ internal fun createTruncatedText(
     // so that hasVisualOverflow holds true, and expandLinkAnnotated
     // doesn't get connected to the overflowed text
     append("\n")
-    append(text.subSequence(lineWithSeeMoreEndIndex, text.length))
+    append(text.subSequence(startIndex = lineWithSeeMoreEndIndex, endIndex = text.length))
   }
 }
 
@@ -400,7 +401,7 @@ internal fun findTruncationIndex(
 ): Int {
   var lineWithExpandLinkEndIndex = lineEndIndex
   while(lineWithExpandLinkEndIndex > lineStartIndex) {
-    val line = text.subSequence(lineStartIndex, lineWithExpandLinkEndIndex)
+    val line = text.subSequence(startIndex = lineStartIndex, endIndex = lineWithExpandLinkEndIndex)
     val lineWidth = textMeasurementProvider.measureTextWidth(line, style)
 
     lineWithExpandLinkEndIndex--

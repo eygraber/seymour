@@ -2,7 +2,7 @@ plugins {
   kotlin("jvm")
   id("com.eygraber.conventions-compose-jetbrains")
   id("com.eygraber.conventions-kotlin-library")
-  id("com.eygraber.conventions-detekt")
+  id("com.eygraber.conventions-detekt2")
 }
 
 kotlin {
