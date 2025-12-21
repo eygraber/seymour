@@ -53,7 +53,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
     var layoutCallCount = 0
 
     setContent {
-      val customDensity = Density(2.0F, 1.0F)
+      val customDensity = Density(density = 2.0F, fontScale = 1.0F)
       CompositionLocalProvider(LocalDensity provides customDensity) {
         var isSeeMoreExpanded by remember { mutableStateOf(false) }
         SeymourText(
@@ -102,7 +102,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
 
     // Change density
     runOnIdle {
-      currentDensity = Density(2.0F, 1.0F)
+      currentDensity = Density(density = 2.0F, fontScale = 1.0F)
     }
 
     waitForIdle()
@@ -117,7 +117,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
   @Test
   fun `test truncation consistency across density changes`() = runComposeUiTest {
     val text = "This is a moderately long text that may or may not be truncated depending on the density settings"
-    var currentDensity by mutableStateOf(Density(0.75F, 1.0F))
+    var currentDensity by mutableStateOf(Density(density = 0.75F, fontScale = 1.0F))
     var hasTruncationAtHighDensity = false
 
     setContent {
@@ -141,7 +141,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
     waitForIdle()
 
     // Change to higher density
-    currentDensity = Density(4.0F, 1.0F)
+    currentDensity = Density(density = 4.0F, fontScale = 1.0F)
 
     waitForIdle()
 
@@ -177,7 +177,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
 
     // Change to higher density
     runOnIdle {
-      currentDensity = Density(2.5F, 1.0F)
+      currentDensity = Density(density = 2.5F, fontScale = 1.0F)
     }
 
     waitForIdle()
@@ -217,7 +217,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
     waitForIdle()
 
     // Change to larger font scale (simulating accessibility settings)
-    currentDensity = Density(1.0F, 1.5F)
+    currentDensity = Density(density = 1.0F, fontScale = 1.5F)
 
     waitForIdle()
 
@@ -262,7 +262,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
 
     // Change to high density
     runOnIdle {
-      currentDensity = Density(2.5F, 1.0F)
+      currentDensity = Density(density = 2.5F, fontScale = 1.0F)
     }
 
     waitForIdle()
@@ -305,7 +305,7 @@ actual class CommonInlineSeymourTextUiTest : InlineSeymourTextUiTest() {
 
     // Change density while expanded
     runOnIdle {
-      currentDensity = Density(2.0F, 1.0F)
+      currentDensity = Density(density = 2.0F, fontScale = 1.0F)
     }
 
     waitForIdle()

@@ -254,8 +254,8 @@ private fun ColumnScope.Header() {
 
   Text(
     text = """
-        |Showcasing both inline and non-inline variants.
-        |Try resizing the window to see how the 'See more' link position adapts automatically!
+    |Showcasing both inline and non-inline variants.
+    |Try resizing the window to see how the 'See more' link position adapts automatically!
     """.trimMargin(),
     style = MaterialTheme.typography.bodyMedium,
     color = MaterialTheme.colorScheme.onSurfaceVariant,

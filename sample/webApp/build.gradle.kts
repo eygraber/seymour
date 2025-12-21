@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
   id("com.eygraber.conventions-kotlin-multiplatform")
-  id("com.eygraber.conventions-detekt")
+  id("com.eygraber.conventions-detekt2")
   id("com.eygraber.conventions-compose-jetbrains")
 }
 
