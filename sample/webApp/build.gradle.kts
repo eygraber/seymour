@@ -31,10 +31,10 @@ kotlin {
   sourceSets {
     webMain {
       dependencies {
-        implementation(compose.foundation)
-        implementation(compose.material3)
-
         implementation(projects.sample.shared)
+
+        implementation(libs.compose.foundation)
+        implementation(libs.compose.material3)
       }
     }
   }
