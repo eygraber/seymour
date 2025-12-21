@@ -1,12 +1,8 @@
 plugins {
   id("com.eygraber.conventions-kotlin-multiplatform")
-  id("com.eygraber.conventions-android-library")
+  id("com.eygraber.conventions-android-kmp-library")
   id("com.eygraber.conventions-compose-jetbrains")
   id("com.eygraber.conventions-detekt2")
-}
-
-android {
-  namespace = "com.eygraber.seymour.sample.shared"
 }
 
 kotlin {
@@ -17,6 +13,7 @@ kotlin {
     KmpTarget.WasmJs,
     project = project,
     ignoreDefaultTargets = true,
+    androidNamespace = "com.eygraber.seymour.sample.shared",
   )
 
   sourceSets {

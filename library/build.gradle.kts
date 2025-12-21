@@ -1,12 +1,13 @@
+import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
   id("com.eygraber.conventions-kotlin-multiplatform")
-  id("com.eygraber.conventions-android-library")
+  id("com.eygraber.conventions-android-kmp-library")
   id("com.eygraber.conventions-compose-jetbrains")
   id("com.eygraber.conventions-detekt2")
   id("com.eygraber.conventions-publish-maven-central")
-  alias(libs.plugins.paparazzi)
+  // alias(libs.plugins.paparazzi)
 }
 
 kotlin {
@@ -14,7 +15,14 @@ kotlin {
 
   defaultKmpTargets(
     project = project,
+    androidNamespace = "com.eygraber.seymour",
   )
+
+  androidLibrary {
+    withHostTest {
+      isIncludeAndroidResources = true
+    }
+  }
 
   js {
     compilerOptions.optIn.add("kotlin.js.ExperimentalWasmJsInterop")
@@ -32,7 +40,7 @@ kotlin {
   }
 
   sourceSets {
-    androidUnitTest.dependencies {
+    named("androidHostTest").dependencies {
       implementation(libs.test.compose.uiManifest)
       implementation(libs.test.junit)
       implementation(libs.test.paparazzi)
@@ -57,15 +65,5 @@ kotlin {
     jvmTest.dependencies {
       implementation(compose.desktop.currentOs)
     }
-  }
-}
-
-android {
-  namespace = "com.eygraber.seymour"
-
-  testOptions.unitTests.isIncludeAndroidResources = true
-
-  dependencies {
-    debugImplementation(compose.uiTooling)
   }
 }

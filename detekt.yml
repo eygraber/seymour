@@ -271,7 +271,7 @@ naming:
     minimumFunctionNameLength: 3
   FunctionNaming:
     active: true
-    excludes: ['**/test/**', '**/androidTest/**', '**/androidUnitTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**', '**/wasmJsTest/**', '**/webTest/**']
+    excludes: ['**/test/**', '**/*Test/**']
     functionPattern: '^([[a-z][A-Z]$][a-zA-Z$0-9]*)|(`.*`)$'
     excludeClassPattern: '$^'
     ignoreAnnotated: ['Composable']
