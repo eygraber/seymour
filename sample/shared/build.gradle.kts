@@ -21,9 +21,9 @@ kotlin {
       dependencies {
         implementation(projects.library)
 
-        api(compose.foundation)
-        api(compose.material3)
-        api(compose.runtime)
+        api(libs.compose.foundation)
+        api(libs.compose.material3)
+        api(libs.compose.runtime)
       }
     }
   }

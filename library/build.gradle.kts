@@ -51,15 +51,14 @@ kotlin {
     }
 
     commonMain.dependencies {
-      implementation(compose.foundation)
+      implementation(libs.compose.foundation)
       implementation(libs.compose.material3)
-      implementation(compose.runtime)
+      implementation(libs.compose.runtime)
     }
 
     commonTest.dependencies {
       implementation(kotlin("test"))
-      @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
-      implementation(compose.uiTest)
+      implementation(libs.compose.uiTest)
     }
 
     jvmTest.dependencies {
