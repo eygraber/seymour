@@ -16,7 +16,7 @@ detektCompose = "0.5.6"
 
 dokka = "2.1.0"
 
-kotlin = "2.3.0"
+kotlin = "2.3.10"
 
 ktlint = "1.8.0"
 ktlintCustomRules = "0.1.1"
