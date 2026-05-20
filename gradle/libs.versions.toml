@@ -21,7 +21,7 @@ kotlin = "2.3.21"
 ktlint = "1.8.0"
 ktlintCustomRules = "0.1.1"
 
-paparazzi = "2.0.0-alpha04"
+paparazzi = "2.0.0-alpha05"
 
 publish = "0.36.0"
 
