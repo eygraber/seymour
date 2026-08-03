@@ -9,7 +9,7 @@ androidx-activity = "1.13.0"
 
 composeJetbrains = "1.11.1"
 
-conventions = "0.0.101"
+conventions = "0.0.102"
 
 detekt = "2.0.0-alpha.5"
 detektCompose = "0.6.3"
