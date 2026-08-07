@@ -12,7 +12,7 @@ composeJetbrains = "1.11.1"
 conventions = "0.0.102"
 
 detekt = "2.0.0-alpha.6"
-detektCompose = "0.6.3"
+detektCompose = "0.6.4"
 
 dokka = "2.2.0"
 
