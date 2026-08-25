@@ -26,6 +26,10 @@ kotlin {
   js {
     compilerOptions.optIn.add("kotlin.js.ExperimentalWasmJsInterop")
 
+    // Compose UI tests need the Skiko runtime to be bundled by webpack, which only happens
+    // if an executable binary is declared - https://youtrack.jetbrains.com/issue/CMP-4906
+    binaries.executable()
+
     browser {
       testTask {
         enabled = false
@@ -36,6 +40,8 @@ kotlin {
   @OptIn(ExperimentalWasmDsl::class)
   wasmJs {
     compilerOptions.optIn.add("kotlin.js.ExperimentalWasmJsInterop")
+
+    binaries.executable()
   }
 
   sourceSets {
