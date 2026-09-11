@@ -25,7 +25,7 @@ paparazzi = "2.0.0-alpha05"
 
 publish = "0.37.0"
 
-robolectric = "4.16.1"
+robolectric = "4.17"
 
 [plugins]
 conventions = { id = "com.eygraber.conventions", version.ref = "conventions" }
